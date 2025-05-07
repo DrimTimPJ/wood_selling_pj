@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const mongodb = require('./env')
 const express = require('express');
 const app = express();
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://admin:admin@cluster0.pznl908.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(mongodb, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log("MongoDB connected"))

@@ -2,12 +2,14 @@ const mongoose = require('mongoose');
 const { mongodb , PORT } = require('./env')
 const express = require('express');
 const ourWorkRouter = require('./routes/ourWork')
+const pricesRouter = require('./routes/prices')
 
 const app = express();
 
 app.use(express.json());
 
 app.use('/our-work', ourWorkRouter)
+app.use('/prices', pricesRouter)
 
 mongoose.connect(mongodb, {
     useNewUrlParser: true,

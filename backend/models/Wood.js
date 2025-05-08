@@ -4,9 +4,9 @@ const WoodStatisticsSchema = new mongoose.Schema({
     isTrue: { type: Boolean, required: true }
 });
 
-const WoodPropsSchema = new mongoose.Schema({
+const WoodSchema = new mongoose.Schema({
     image: { type: String, required: true },
     name: { type: String, unique: true, required: true },
     statistics: { type: [WoodStatisticsSchema], required: true }
 });
-module.exports = mongoose.model('WoodProps', WoodPropsSchema);
+module.exports = mongoose.model('WoodProps', WoodSchema);

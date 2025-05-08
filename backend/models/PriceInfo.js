@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const PriceGridPropsSchema = new mongoose.Schema({
+const PriceInfoSchema = new mongoose.Schema({
     name: { type: String, unique: true, required: true },
     length: { type: String, required: true },
     width: { type: String, required: true },
@@ -8,4 +8,4 @@ const PriceGridPropsSchema = new mongoose.Schema({
     cenam3: { type: String, required: true },
     cenaKs: { type: String, required: true }
 });
-module.exports = mongoose.model('PriceGridProps', PriceGridPropsSchema);
+module.exports = mongoose.model('PriceGridProps', PriceInfoSchema);

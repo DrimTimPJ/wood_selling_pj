@@ -1,0 +1,78 @@
+import { PriceGridProps } from "./type";
+
+const mockData: PriceGridProps[] = [
+    {
+      name: 'buk',
+      length: '100',
+      width: '200',
+      thick: '300',
+      m3: '400',
+      cenaKs: '500',
+      cenam3: '600',
+    },
+    {
+      name: 'buk',
+      length: '100',
+      width: '200',
+      thick: '300',
+      m3: '400',
+      cenaKs: '500',
+      cenam3: '600',
+    },
+    {
+      name: 'buk',
+      length: '100',
+      width: '200',
+      thick: '300',
+      m3: '400',
+      cenaKs: '500',
+      cenam3: '600',
+    },
+    {
+      name: 'buk',
+      length: '100',
+      width: '200',
+      thick: '300',
+      m3: '400',
+      cenaKs: '500',
+      cenam3: '600',
+    },
+    {
+      name: 'buk',
+      length: '100',
+      width: '200',
+      thick: '300',
+      m3: '400',
+      cenaKs: '500',
+      cenam3: '600',
+    },
+    {
+      name: 'buk',
+      length: '100',
+      width: '200',
+      thick: '300',
+      m3: '400',
+      cenaKs: '500',
+      cenam3: '600',
+    },
+    {
+      name: 'buk',
+      length: '100',
+      width: '200',
+      thick: '300',
+      m3: '400',
+      cenaKs: '500',
+      cenam3: '600',
+    },
+    {
+      name: 'buk',
+      length: '100',
+      width: '200',
+      thick: '300',
+      m3: '400',
+      cenaKs: '500',
+      cenam3: '600',
+    },
+  ];
+
+export default mockData

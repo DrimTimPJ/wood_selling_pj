@@ -1,4 +1,4 @@
-import { WoodProps } from "./types";
+import { WoodProps } from "./type";
 
 const mockData: WoodProps[] = [
     {

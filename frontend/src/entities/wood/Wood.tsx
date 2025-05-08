@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 
-import { WoodProps } from './types';
+import { WoodProps } from './type';
 
 const Wood: FC<WoodProps> = ({ name, image, statistics }) => {
   return (

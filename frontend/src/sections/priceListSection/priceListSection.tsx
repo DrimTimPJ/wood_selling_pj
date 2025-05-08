@@ -1,4 +1,4 @@
-import mockData from "@/entities/priceGrid.ts/mockData";
+import mockData from "@/entities/priceGrid/mockData";
 
   export default function PriceListSection() {
     if (mockData?.[0]) {

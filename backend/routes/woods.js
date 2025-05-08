@@ -4,7 +4,7 @@ const router = express.Router();
 const verifyToken = require('../middleware/authMiddleware')
 
 const WoodSchema = require("../models/Wood")
-const WoodStatisticsSchema = require("../models/Wood")
+
 
 router.get('/', async (req, res) => {
     try {
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     });
     
 
-router.post('/', async (req, res) => {
+router.post('/', verifyToken, async (req, res) => {
     try {
         const { image, name, statistics } = req.body;
 
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
     }
     });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', verifyToken, async (req, res) => {
     try {
         const Wood = await WoodSchema.findByIdAndDelete(req.params.id);
         if (!Wood) return res.status(404).send('Wood not found');

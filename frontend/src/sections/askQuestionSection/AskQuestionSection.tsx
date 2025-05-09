@@ -1,4 +1,4 @@
-import QuestionForm from '@/forms/questionForm';
+import QuestionForm from '@/forms/questionForm/QuestionForm.tsx'
 
 export default function AskQuestionSection() {
   return (
@@ -16,5 +16,5 @@ export default function AskQuestionSection() {
         </div>
       </div>
     </div>
-  );
+  )
 }

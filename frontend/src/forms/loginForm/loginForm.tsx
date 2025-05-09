@@ -1,30 +1,50 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+
 import usePost from '@/customHooks/usePost'
 import routes from '@/contants/serverLinks'
 
 import { inputData, ResponseData } from './type'
-
 import Button from '@/shared/button/button'
-import { useEffect } from 'react'
 
 export default function LoginForm() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const router = useRouter()
+
   const { register, handleSubmit } = useForm<inputData>()
 
   const { data, error, isLoading, postRequest } = usePost<ResponseData>(
     routes.auth.login
   )
 
-  const onSubmit = (data: inputData) => {
-    postRequest(data)
+  const onSubmit = (formData: inputData) => {
+    postRequest(formData)
   }
 
   useEffect(() => {
-    if (!error && data?.token) {
-      localStorage.setItem('token', data.token)
+    const token = localStorage.getItem('token')
+    if (token) {
+      setIsLoggedIn(true)
     }
-  }, [error])
+  }, [])
+
+  useEffect(() => {
+    if (data?.token) {
+      localStorage.setItem('token', data.token)
+      setIsLoggedIn(true)
+    }
+  }, [data])
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push('/')
+    }
+  }, [isLoggedIn])
+
+  if (isLoggedIn) return null
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -43,9 +63,9 @@ export default function LoginForm() {
         required
       />
       <div className="w-[40%] mt-5 m-0 m-auto lg:w-[30%]">
-        <Button text="Send" />
+        <Button text={isLoading ? 'Loading...' : 'Send'} />
       </div>
-      {error && <p className="m-0 m-auto">Error: {error}</p>}
+      {error && <p className="m-0 m-auto text-red-500">Error: {error}</p>}
     </form>
   )
 }

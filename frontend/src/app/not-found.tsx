@@ -1,7 +1,7 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
-import Button from '@/shared/button/button';
-import { NAV_BAR_LINKS } from '@/contants/links';
+import Button from '@/shared/button/button'
+import { NAV_BAR_LINKS } from '@/contants/clientLinks'
 
 export default function NotFoundPage() {
   return (
@@ -21,5 +21,5 @@ export default function NotFoundPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

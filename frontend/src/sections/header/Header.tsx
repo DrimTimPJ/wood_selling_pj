@@ -1,19 +1,19 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
-import UseGetScreenSize from '@/customHooks/getScreenSize';
+import UseGetScreenSize from '@/customHooks/getScreenSize'
 
-import NavBar from './components/NavBar';
-import MobileNavBar from './components/MobileNavBar';
+import NavBar from './components/NavBar'
+import MobileNavBar from './components/MobileNavBar'
 
-import { NAV_BAR_LINKS } from '@/contants/links';
+import { NAV_BAR_LINKS } from '@/contants/clientLinks'
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const windowSize = UseGetScreenSize();
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const windowSize = UseGetScreenSize()
 
   return (
     <div className="bg-[#222021]">
@@ -56,5 +56,5 @@ export default function Header() {
         </div>
       </div>
     </div>
-  );
+  )
 }

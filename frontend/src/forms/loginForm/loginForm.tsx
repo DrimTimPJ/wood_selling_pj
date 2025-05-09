@@ -20,10 +20,6 @@ export default function LoginForm() {
     routes.auth.login
   )
 
-  const onSubmit = (formData: inputData) => {
-    postRequest(formData)
-  }
-
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -47,7 +43,7 @@ export default function LoginForm() {
   if (isLoggedIn) return null
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit((data: inputData) => postRequest(data))}>
       <input
         className="border border-[rgb(114,139,173)] p-3 placeholder:text-[#D9D9D9] text-white w-[100%] mt-5 rounded-2xl md:w-[50%] md:block m-0 m-auto lg:w-[35%]"
         type="text"

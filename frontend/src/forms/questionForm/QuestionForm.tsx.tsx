@@ -1,38 +1,57 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form'
+import usePost from '@/customHooks/usePost'
+import routes from '@/contants/serverLinks'
+import { responseData, inputData } from './type'
 
-import Button from '@/shared/button/button';
+import Button from '@/shared/button/button'
 
 export default function QuestionForm() {
-  const { register, handleSubmit } = useForm();
-  const [data, setData] = useState<string>('');
+  const { register, handleSubmit, reset } = useForm<inputData>()
+  const { data, error, isLoading, postRequest } = usePost<responseData>(
+    routes.questions.base
+  )
+
+  const onSubmit = (formData: inputData) => {
+    postRequest(formData)
+    reset()
+  }
+
+  if (data) {
+    return <h2 className="text-center">Created! We'll call you.</h2>
+  }
 
   return (
-    <form onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {error && (
+        <h2 className="text-center text-red-500 text-[12px] md:text-[16px] padding-[5px]">
+          Be sure that you have enetered correct number phone +380.... or
+          096|067 etc ....
+        </h2>
+      )}
       <input
-        className="border border-[#728BAD] p-3 placeholder:text-[#D9D9D9] text-white w-[100%] mt-5 rounded-2xl md:w-[50%] md:block m-0 m-auto lg:w-[35%]"
+        className="border border-[#728BAD] p-3 placeholder:text-[#D9D9D9] text-white w-full mt-5 rounded-2xl md:w-[50%] md:block m-auto lg:w-[35%]"
         type="text"
         {...register('name')}
         placeholder="Your name"
         required
       />
       <input
-        className="border border-[#728BAD] p-3 placeholder:text-[#D9D9D9] text-white w-[100%] mt-5 rounded-2xl md:w-[50%] md:block m-0 m-auto lg:w-[35%]"
+        className="border border-[#728BAD] p-3 placeholder:text-[#D9D9D9] text-white w-full mt-5 rounded-2xl md:w-[50%] md:block m-auto lg:w-[35%]"
         type="text"
-        {...register('phonenumber')}
+        {...register('telephoneNumber')}
         placeholder="Your telephone number"
         required
       />
       <textarea
-        className="border border-[#728BAD] p-3 placeholder:text-[#D9D9D9] text-white w-[100%] mt-5 rounded-2xl md:w-[50%] md:block m-0 m-auto lg:w-[35%]"
+        className="border border-[#728BAD] p-3 placeholder:text-[#D9D9D9] text-white w-full mt-5 rounded-2xl md:w-[50%] md:block m-auto lg:w-[35%]"
         {...register('question')}
         placeholder="Your question"
       />
-      <div className="w-[40%] mt-5 m-0 m-auto lg:w-[30%]">
-        <Button text="Send" />
+      <div className="w-[40%] mt-5 m-auto lg:w-[30%]">
+        <Button text={isLoading ? 'Sending...' : 'Send'} />
       </div>
     </form>
-  );
+  )
 }

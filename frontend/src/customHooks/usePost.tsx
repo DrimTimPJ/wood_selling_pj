@@ -4,15 +4,15 @@ interface UsePostResponse<T> {
   data: T | null
   error: string | null
   isLoading: boolean
-  postRequest: () => Promise<void>
+  postRequest: (body: object) => Promise<void>
 }
 
-const usePost = <T,>(url: string, body: object): UsePostResponse<T> => {
+const usePost = <T,>(url: string): UsePostResponse<T> => {
   const [data, setData] = useState<T | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
-  const postRequest = async () => {
+  const postRequest = async (body: object) => {
     setIsLoading(true)
     try {
       const response = await fetch(url, {

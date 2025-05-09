@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
-import { NAV_BAR_LINKS } from '@/contants/links';
+import { NAV_BAR_LINKS } from '@/contants/clientLinks'
 
 export default function NavBar() {
   return (
@@ -14,5 +14,5 @@ export default function NavBar() {
         </div>
       ))}
     </div>
-  );
+  )
 }

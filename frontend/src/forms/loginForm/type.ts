@@ -3,4 +3,8 @@ interface inputData {
     password:string
 }
 
-export type {inputData}
+interface ResponseData {
+    token:string
+}
+
+export type {inputData,ResponseData}

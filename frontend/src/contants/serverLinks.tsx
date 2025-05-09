@@ -4,6 +4,9 @@ const routes = {
   auth: {
     login: `${API_BASE}/auth/login`,
   },
+  questions: {
+    base: `${API_BASE}/questions/`,
+  },
 }
 
 export default routes

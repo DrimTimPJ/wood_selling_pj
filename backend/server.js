@@ -10,6 +10,7 @@ const pricesRouter = require('./routes/prices')
 const UserQuestionRouter = require('./routes/userQuestions')
 const WoodRouter = require('./routes/woods')
 const Authroute = require('./routes/auth');
+const sharedInfoRoute = require('./routes/sharedInfo')
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use('/prices', pricesRouter)
 app.use('/questions', UserQuestionRouter)
 app.use('/woods', WoodRouter)
 app.use('/auth', Authroute)
+app.use('/info', sharedInfoRoute)
 
 
 mongoose.connect(mongodb, {

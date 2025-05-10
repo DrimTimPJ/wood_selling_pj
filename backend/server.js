@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
-const { mongodb , PORT } = require('./env')
 const express = require('express');
+
+const cors = require('cors')
+
+const { mongodb , PORT, CLIENT_URL } = require('./env')
+
 const ourWorkRouter = require('./routes/ourWork')
 const pricesRouter = require('./routes/prices')
 const UserQuestionRouter = require('./routes/userQuestions')
@@ -9,6 +13,7 @@ const Authroute = require('./routes/auth');
 
 const app = express();
 
+app.use(cors({ origin: CLIENT_URL }))
 app.use(express.json());
 
 app.use('/our-work', ourWorkRouter)

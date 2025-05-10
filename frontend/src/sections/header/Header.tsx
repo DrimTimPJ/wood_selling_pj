@@ -1,24 +1,24 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
-import UseGetScreenSize from '@/customHooks/getScreenSize';
+import UseGetScreenSize from '@/customHooks/getScreenSize'
 
-import NavBar from './components/NavBar';
-import MobileNavBar from './components/MobileNavBar';
+import NavBar from './components/NavBar'
+import MobileNavBar from './components/MobileNavBar'
 
-import { NAV_BAR_LINKS } from '@/contants/links';
+import { NAV_BAR_LINKS } from '@/contants/clientLinks'
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const windowSize = UseGetScreenSize();
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const windowSize = UseGetScreenSize()
 
   return (
-    <div className="bg-[#222021]">
-      <div className="bg-[#1E0C06] h-20 rounded-b-4xl md:h-25 lg:h-30">
-        <div className="w-[90%] justify-between flex m-0 m-auto pt-5 md:pt-7 lg:pt-10">
+    <div className="bg-[#222021] pb-10">
+      <div className="bg-[#1a181a] h-20 rounded-b-4xl md:h-25 lg:h-30 shadow-[0_4px_30px_rgba(255,255,255,0.9)]">
+        <div className="w-[90%] justify-between flex m-0 m-auto pt-5 md:pt-7 lg:pt-10 ">
           <Link href={NAV_BAR_LINKS.home.link}>
             <Image
               height={100}
@@ -56,5 +56,5 @@ export default function Header() {
         </div>
       </div>
     </div>
-  );
+  )
 }

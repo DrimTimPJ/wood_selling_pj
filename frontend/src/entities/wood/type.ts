@@ -4,9 +4,12 @@ interface WoodStatistics {
   }
   
   interface WoodProps {
+    _id:string
     image: string;
     name: string;
     statistics: WoodStatistics[];
   }
 
-export type {WoodProps}
+  type WoodInputData = Omit<WoodProps,'_id'>
+
+export type {WoodProps,WoodInputData}

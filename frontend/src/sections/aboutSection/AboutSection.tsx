@@ -1,10 +1,10 @@
-import Image from 'next/image';
+import Image from 'next/image'
 
 export default function AboutSection() {
   return (
     <div className="bg-[#222021] text-white pt-10 pb-10">
       <div>
-        <div className="bg-[#1E0C06] rounded-r-4xl pt-10 w-[90%] lg:w-[90%] shadow-[0_4px_20px_rgba(255,255,255,0.6)]">
+        <div className="bg-[#1a181a] rounded-r-4xl pt-10 w-[90%] lg:w-[90%] shadow-[0_4px_20px_rgba(255,255,255,0.6)]">
           <div className="pl-5 md:flex md:justify-around xl:pl-20 lg:pl-10">
             <div className="w-[100%]">
               <div className="text-[64px] lg:text-[72px]">About us</div>
@@ -19,7 +19,7 @@ export default function AboutSection() {
               <Image
                 height={200}
                 width={200}
-                className={`relative mt-10 bg-[#1E0C06] p-2 rounded-4xl z-1 w-[175px] h-[175px] md:w-[200px] md:h-[200px] lg:w-[300px] lg:h-[300px]
+                className={`relative mt-10 bg-[#1a181a] p-2 rounded-4xl z-1 w-[175px] h-[175px] md:w-[200px] md:h-[200px] lg:w-[300px] lg:h-[300px]
                            xl:w-[350px] xl:h-[350px]`}
                 src={'/images/worker(1).svg'}
                 alt="image of worker"
@@ -45,5 +45,5 @@ export default function AboutSection() {
         </div>
       </div>
     </div>
-  );
+  )
 }

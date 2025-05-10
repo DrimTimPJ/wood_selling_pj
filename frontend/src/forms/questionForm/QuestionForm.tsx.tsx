@@ -3,17 +3,17 @@
 import { useForm } from 'react-hook-form'
 import usePost from '@/customHooks/usePost'
 import routes from '@/contants/serverLinks'
-import { responseData, inputData } from './type'
+import { QuestionInputData, QuestionProps } from '@/entities/question/type'
 
 import Button from '@/shared/button/button'
 
 export default function QuestionForm() {
-  const { register, handleSubmit, reset } = useForm<inputData>()
-  const { data, error, isLoading, postRequest } = usePost<responseData>(
+  const { register, handleSubmit, reset } = useForm<QuestionInputData>()
+  const { data, error, isLoading, postRequest } = usePost<QuestionProps>(
     routes.questions.base
   )
 
-  const onSubmit = (formData: inputData) => {
+  const onSubmit = (formData: QuestionInputData) => {
     postRequest(formData)
     reset()
   }

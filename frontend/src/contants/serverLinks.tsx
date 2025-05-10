@@ -5,7 +5,13 @@ const routes = {
     login: `${API_BASE}/auth/login`,
   },
   questions: {
-    base: `${API_BASE}/questions/`,
+    base: `${API_BASE}/questions`,
+  },
+  wood: {
+    base: `${API_BASE}/woods`,
+  },
+  ourWork: {
+    base: `${API_BASE}/our-work`,
   },
 }
 

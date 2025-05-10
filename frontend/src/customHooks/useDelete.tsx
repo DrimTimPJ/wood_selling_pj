@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import useAuthStore from '@/store/authStore'
+import useUpdateStore from '@/store/updateStore'
 
 interface UseDeleteResponse {
   success: boolean
@@ -7,24 +9,30 @@ interface UseDeleteResponse {
   deleteRequest: () => Promise<void>
 }
 
-const useDelete = (url: string): UseDeleteResponse => {
+const useDelete = (url: string, updateTrigger: Function): UseDeleteResponse => {
   const [success, setSuccess] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
+  const token = useAuthStore((state) => state.token)
+
   const deleteRequest = async () => {
     setIsLoading(true)
+    console.log('first')
     try {
       const response = await fetch(url, {
         method: 'DELETE',
+        headers: {
+          ...(token && { Authorization: token }),
+        },
       })
 
-      const result = await response.json()
-
       if (!response.ok) {
-        throw new Error(result.message || 'Something went wrong')
+        throw new Error('Something went wrong')
       }
-
+      if (updateTrigger) {
+        updateTrigger()
+      }
       setSuccess(true)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error')

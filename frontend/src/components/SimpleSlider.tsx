@@ -1,13 +1,11 @@
-'use client';
+'use client'
 
-import { FC } from 'react';
-import Image from 'next/image';
+import { ReactElement } from 'react'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
-import { NextArrow, PrevArrow } from './Arrows';
+import { NextArrow, PrevArrow } from './Arrows'
 
 const settings = {
   dots: true,
@@ -18,29 +16,26 @@ const settings = {
   slidesToScroll: 1,
   prevArrow: <PrevArrow />,
   nextArrow: <NextArrow />,
-};
-
-interface SimpleSliderProps {
-  values: string[];
 }
 
-const SimpleSlider: FC<SimpleSliderProps> = ({ values }) => {
+type SimpleSliderProps<T extends object> = {
+  values: T[]
+  Component: React.ComponentType<T>
+}
+
+function SimpleSlider<T extends object>({
+  values,
+  Component,
+}: SimpleSliderProps<T>): ReactElement {
   return (
     <Slider {...settings}>
-      {' '}
       {values.map((item, index) => (
         <div key={index}>
-          <Image
-            className="w-[90%] md:w-[80%] lg:w-[70%] m-0 m-auto max-w-full h-auto"
-            height={100}
-            width={100}
-            src={item}
-            alt={item}
-          />
+          <Component {...(item as T)} />
         </div>
       ))}
     </Slider>
-  );
-};
+  )
+}
 
-export default SimpleSlider;
+export default SimpleSlider

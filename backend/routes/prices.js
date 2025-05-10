@@ -24,7 +24,7 @@ router.put('/:id', verifyToken, async (req, res) => {
       { new: true }
     );
     if (!PriceInfo) return res.status(404).send('PriceInfo not found');
-    res.status(404).send('PriceInfo updated');
+    res.status(200).send('PriceInfo updated');
   } catch (err) {
     res.status(500).send(err.message);
   }

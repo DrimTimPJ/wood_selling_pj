@@ -8,8 +8,7 @@ export default function AskQuestionSection() {
           Any questions?
         </div>
         <div className="pt-5 w-[80%] text-[12px] md:m-0 md:m-auto md:text-[16px] lg:text-3xl lg:w-[50%]">
-          Write to us and we will be sure to answer all your questions and give
-          you a comprehensive consultation
+        Напишіть нам, і ми обов'язково відповімо на всі ваші запитання та надамо вам консультацію
         </div>
         <div className="pt-10">
           <QuestionForm />

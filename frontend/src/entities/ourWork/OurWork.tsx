@@ -29,7 +29,10 @@ const OurWork: React.FC<OurWorkProps> = ({ image, price, _id }) => {
       <div className="text-[16px] pb-20 pl-10 pr-10">
         <div className="pt-5 text-center text-[24px]">Price: {price}</div>
         {token && (
-          <div className="pt-10" onClick={() => deleteRequest()}>
+          <div
+            className="pt-10 w-[30%] m-0 m-auto"
+            onClick={() => deleteRequest()}
+          >
             <Button text={'Delete'} />
           </div>
         )}

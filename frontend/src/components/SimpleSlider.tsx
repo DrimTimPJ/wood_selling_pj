@@ -7,17 +7,6 @@ import 'slick-carousel/slick/slick-theme.css'
 
 import { NextArrow, PrevArrow } from './Arrows'
 
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 1000,
-  autoplaySpeed: 2000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  prevArrow: <PrevArrow />,
-  nextArrow: <NextArrow />,
-}
-
 type SimpleSliderProps<T extends object> = {
   values: T[]
   Component: React.ComponentType<T>
@@ -27,6 +16,21 @@ function SimpleSlider<T extends object>({
   values,
   Component,
 }: SimpleSliderProps<T>): ReactElement {
+  const hasMultipleSlides = values.length > 1
+
+  const settings = {
+    dots: hasMultipleSlides,
+    infinite: hasMultipleSlides,
+    speed: 1000,
+    autoplay: hasMultipleSlides,
+    autoplaySpeed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: hasMultipleSlides,
+    prevArrow: hasMultipleSlides ? <PrevArrow /> : undefined,
+    nextArrow: hasMultipleSlides ? <NextArrow /> : undefined,
+  }
+
   return (
     <Slider {...settings}>
       {values.map((item, index) => (

@@ -22,7 +22,7 @@ const Page = () => {
   if (error) return <div>Ошибка: {error}</div>
 
   return (
-    <div className="bg-[#222021] pb-30">
+    <div className="bg-[#222021] pb-30 text-white">
       <h1 className="pt-10 pb-10 text-[48px] md:text-[64px] text-center">
         Questions
       </h1>

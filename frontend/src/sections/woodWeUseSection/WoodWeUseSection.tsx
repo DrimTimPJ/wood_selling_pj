@@ -27,7 +27,7 @@ export default function WoodWeUseSection() {
         {isShow && <CreateWoodForm setFunc={setIsShow} />}
         <div className="w-[90%] m-0 m-auto">
           <div className="text-[32px] m-0 m-auto w-[80%] md:w-[70%] md:text-center md:text-[64px] lg:text-[90px] lg:w-[40%] ">
-            The wood we work with
+            Дерево з яким працюємо
           </div>
           <div className="overflow-x-scroll custom-scrollbar overflow-visible flex justify-evenly pb-10 mt-10 lg:mt-20 w-[60%] m-0 m-auto">
             {data.map((item, index) => (

@@ -22,7 +22,7 @@ export default function ContactSection() {
                   alt="phone"
                 />
               </div>
-              <div className="pl-5">+420 000 000 000</div>
+              <div className="pl-5">+380962459010</div>
             </div>
 
             <div className="flex mt-10">
@@ -35,8 +35,8 @@ export default function ContactSection() {
                 />
               </div>
               <div className="pl-5">
-                Na Plzeňce 1166/0 <br />
-                150 00
+                вулиця Шолом-Алейхема, 4/26 <br />
+                49044
               </div>
             </div>
           </div>

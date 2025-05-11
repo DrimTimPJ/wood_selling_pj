@@ -31,7 +31,7 @@ export default function OurWorkSection() {
           {isShow && <CreateOurWorkForm setFunc={setIsShow} />}
         </div>
         <div className="w-[80%] lg:w-[60%] m-auto m-0">
-          <div className="pb-10 md:text-center">Our work</div>
+          <div className="pb-10 md:text-center">Наша робота:</div>
           <div>
             <SimpleSlider Component={OurWork} values={data} />
           </div>

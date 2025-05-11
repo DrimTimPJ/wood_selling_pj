@@ -5,8 +5,8 @@ import { NAV_BAR_LINKS } from '@/contants/clientLinks'
 
 export default function NotFoundPage() {
   return (
-    <div className="background-image-404 bg-cover bg-center bg-[#222021] text-white text-center ">
-      <div className="relative left-0 right-0 top-0 bottom-0 bg-black opacity-80 pb-10 p-5 md:pb-15 md:p-10 lg:pb-20">
+    <div className="bg-cover bg-center bg-[#222021] text-white text-center ">
+      <div className="relative left-0 right-0 top-0 bottom-0 bg-[#222021] opacity-80 pb-10 p-5 md:pb-15 md:p-10 lg:pb-20">
         <div className="flex justify-center items-center text-[150px] md:text-[200px]">
           404
         </div>

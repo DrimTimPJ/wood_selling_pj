@@ -12,7 +12,7 @@ const OurWork: React.FC<OurWorkProps> = ({ image, price, _id }) => {
     (state) => state.triggerUpdateOurWork
   )
 
-  const { success, error, isLoading, deleteRequest } = useDelete(
+  const { success, error, deleteRequest } = useDelete(
     `${routes.ourWork.base}/${_id}`,
     triggerUpdateWorks
   )

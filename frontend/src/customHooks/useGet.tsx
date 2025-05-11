@@ -1,12 +1,12 @@
 'use client'
 
 import useAuthStore from '@/store/authStore'
+import useUpdateStore from '@/store/updateStore'
 import { useState, useEffect } from 'react'
 
 interface UseGetResponse<T> {
   data: T | null
   error: string | null
-  isLoading: boolean
 }
 
 const useGet = <T,>(
@@ -15,13 +15,13 @@ const useGet = <T,>(
 ): UseGetResponse<T> => {
   const [data, setData] = useState<T | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const token = useAuthStore((state) => state.token)
+  const setIsUpdating = useUpdateStore((state) => state.setIsUpdating)
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true)
+      setIsUpdating(true)
       if (url) {
         try {
           const response = await fetch(url, {
@@ -42,7 +42,7 @@ const useGet = <T,>(
         } catch (err) {
           setError(err instanceof Error ? err.message : 'Unknown error')
         } finally {
-          setIsLoading(false)
+          setIsUpdating(false)
         }
       }
     }
@@ -50,7 +50,7 @@ const useGet = <T,>(
     fetchData()
   }, [url, trigger])
 
-  return { data, error, isLoading }
+  return { data, error }
 }
 
 export default useGet

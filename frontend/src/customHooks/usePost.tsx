@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import useAuthStore from '@/store/authStore'
+import useUpdateStore from '@/store/updateStore'
 
 interface UsePostResponse<T> {
   data: T | null
-  error: string | null
-  isLoading: boolean
+  error: boolean | null
   postRequest: (body: object) => Promise<void>
 }
 
@@ -13,12 +13,13 @@ const usePost = <T,>(
   updateTrigger?: Function
 ): UsePostResponse<T> => {
   const [data, setData] = useState<T | null>(null)
-  const [error, setError] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [error, setError] = useState<boolean | null>(null)
+
+  const setIsUpdating = useUpdateStore((state) => state.setIsUpdating)
   const token = useAuthStore((state) => state.token)
 
   const postRequest = async (body: object) => {
-    setIsLoading(true)
+    setIsUpdating(true)
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -38,15 +39,16 @@ const usePost = <T,>(
         throw new Error(result.message || 'Something went wrong')
       }
 
+      setError(false)
       setData(result)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unknown error')
+      setError(true)
     } finally {
-      setIsLoading(false)
+      setIsUpdating(false)
     }
   }
 
-  return { data, error, isLoading, postRequest }
+  return { data, error, postRequest }
 }
 
 export default usePost

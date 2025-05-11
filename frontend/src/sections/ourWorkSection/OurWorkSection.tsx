@@ -11,7 +11,7 @@ import Button from '@/shared/button/button'
 import useAuthStore from '@/store/authStore'
 
 import { OurWorkProps } from '@/entities/ourWork/type'
-import routes from '@/contants/serverLinks'
+import routes from '@/constants/serverLinks'
 import useUpdateStore from '@/store/updateStore'
 
 export default function OurWorkSection() {
@@ -19,7 +19,7 @@ export default function OurWorkSection() {
   const [isShow, setIsShow] = useState<boolean>(false)
   const isOurWorkUpdated = useUpdateStore((state) => state.ourWorkIsUpdated)
 
-  const { data, error, isLoading } = useGet<OurWorkProps[]>(
+  const { data, error} = useGet<OurWorkProps[]>(
     routes.ourWork.base,
     isOurWorkUpdated
   )
@@ -31,7 +31,7 @@ export default function OurWorkSection() {
           {isShow && <CreateOurWorkForm setFunc={setIsShow} />}
         </div>
         <div className="w-[80%] lg:w-[60%] m-auto m-0">
-          <div className="pb-10 md:text-center">Наша робота:</div>
+          <div className="pb-10 md:text-center">Зроблено нами:</div>
           <div>
             <SimpleSlider Component={OurWork} values={data} />
           </div>
@@ -40,7 +40,7 @@ export default function OurWorkSection() {
           className="text-[16px] mt-10 w-[50%] m-0 m-auto"
           onClick={() => setIsShow(!isShow)}
         >
-          {token && <Button text="Create new work" />}
+          {token && <Button text="Додати новий продукт" />}
         </div>
       </div>
     )

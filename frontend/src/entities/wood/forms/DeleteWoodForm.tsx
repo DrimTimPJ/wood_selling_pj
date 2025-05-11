@@ -3,7 +3,7 @@
 import useDelete from '@/customHooks/useDelete'
 
 import Button from '@/shared/button/button'
-import routes from '@/contants/serverLinks'
+import routes from '@/constants/serverLinks'
 import useUpdateStore from '@/store/updateStore'
 
 interface DeleteWoodFormProps {

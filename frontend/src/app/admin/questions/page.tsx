@@ -3,7 +3,7 @@
 import useAuthStore from '@/store/authStore'
 import useGet from '@/customHooks/useGet'
 import { QuestionProps } from '@/entities/question/type'
-import routes from '@/contants/serverLinks'
+import routes from '@/constants/serverLinks'
 import Question from '@/entities/question/Question'
 import useUpdateStore from '@/store/updateStore'
 

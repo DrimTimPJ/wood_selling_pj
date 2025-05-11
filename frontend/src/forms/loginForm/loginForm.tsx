@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 
 import useAuthStore from '@/store/authStore'
 import usePost from '@/customHooks/usePost'
-import routes from '@/contants/serverLinks'
+import routes from '@/constants/serverLinks'
 
 import { inputData, ResponseData } from './type'
 import Button from '@/shared/button/button'

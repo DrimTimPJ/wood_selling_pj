@@ -12,7 +12,7 @@ import NavBar from './components/NavBar'
 import MobileNavBar from './components/MobileNavBar'
 import { TokenPayload } from '@/types/tokenPayload'
 
-import { NAV_BAR_LINKS } from '@/contants/clientLinks'
+import { NAV_BAR_LINKS } from '@/constants/clientLinks'
 import useAuthStore from '@/store/authStore'
 import useUpdateStore from '@/store/updateStore'
 

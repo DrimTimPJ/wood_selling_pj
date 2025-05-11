@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import Button from '@/shared/button/button'
-import { NAV_BAR_LINKS } from '@/contants/clientLinks'
+import { NAV_BAR_LINKS } from '@/constants/clientLinks'
 
 export default function NotFoundPage() {
   return (

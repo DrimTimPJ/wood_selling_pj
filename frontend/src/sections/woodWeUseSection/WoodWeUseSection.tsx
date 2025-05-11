@@ -8,7 +8,7 @@ import Button from '@/shared/button/button'
 import useAuthStore from '@/store/authStore'
 import useGet from '@/customHooks/useGet'
 import { WoodProps } from '@/entities/wood/type'
-import routes from '@/contants/serverLinks'
+import routes from '@/constants/serverLinks'
 import useUpdateStore from '@/store/updateStore'
 
 export default function WoodWeUseSection() {
@@ -16,7 +16,7 @@ export default function WoodWeUseSection() {
   const token = useAuthStore((state) => state.token)
   const woodsIsUpdated = useUpdateStore((state) => state.woodsIsUpdated)
 
-  const { data, error, isLoading } = useGet<WoodProps[]>(
+  const { data, error} = useGet<WoodProps[]>(
     routes.wood.base,
     woodsIsUpdated
   )

@@ -3,7 +3,7 @@
 import { useForm } from 'react-hook-form'
 import { InputOurWork, OurWorkProps } from '../type'
 import usePost from '@/customHooks/usePost'
-import routes from '@/contants/serverLinks'
+import routes from '@/constants/serverLinks'
 import { Dispatch, SetStateAction, useEffect } from 'react'
 import Button from '@/shared/button/button'
 import useUpdateStore from '@/store/updateStore'

@@ -2,7 +2,7 @@
 
 import { useForm } from 'react-hook-form'
 import usePost from '@/customHooks/usePost'
-import routes from '@/contants/serverLinks'
+import routes from '@/constants/serverLinks'
 import { QuestionInputData, QuestionProps } from '@/entities/question/type'
 
 import Button from '@/shared/button/button'

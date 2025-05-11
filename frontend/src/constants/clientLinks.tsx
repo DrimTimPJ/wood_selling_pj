@@ -11,19 +11,19 @@ const NAV_BAR_LINKS: Record<string, NavBarLink> = {
     link: '/',
   },
   about: {
-    name: 'About us',
+    name: 'Про нас',
     link: '/about',
   },
   prices: {
-    name: 'Prices',
+    name: 'Ціни',
     link: '/prices',
   },
   contact: {
-    name: 'Contact',
+    name: 'Контакти',
     link: '/contact',
   },
   gallery: {
-    name: 'Gallery',
+    name: 'Галерея',
     link: '/gallery',
   },
 }

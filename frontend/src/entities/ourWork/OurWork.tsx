@@ -1,6 +1,6 @@
 'use client'
 
-import routes from '@/contants/serverLinks'
+import routes from '@/constants/serverLinks'
 import { OurWorkProps } from './type'
 import useDelete from '@/customHooks/useDelete'
 import Button from '@/shared/button/button'

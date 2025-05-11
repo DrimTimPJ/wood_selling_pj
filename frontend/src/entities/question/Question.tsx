@@ -1,6 +1,6 @@
 'use client'
 
-import routes from '@/contants/serverLinks'
+import routes from '@/constants/serverLinks'
 import { QuestionProps } from './type'
 
 import useDelete from '@/customHooks/useDelete'

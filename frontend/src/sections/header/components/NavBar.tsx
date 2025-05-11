@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { NAV_BAR_LINKS } from '@/contants/clientLinks'
+import { NAV_BAR_LINKS } from '@/constants/clientLinks'
 
 export default function NavBar() {
   return (

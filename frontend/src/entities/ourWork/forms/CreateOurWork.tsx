@@ -14,6 +14,7 @@ const CreateOurWorkForm: React.FC<{
   const triggerUpdateWorks = useUpdateStore(
     (state) => state.triggerUpdateOurWork
   )
+  const isUpdating = useUpdateStore((state) => state.isUpdating)
 
   const { register, handleSubmit } = useForm<InputOurWork>({
     defaultValues: {
@@ -22,7 +23,7 @@ const CreateOurWorkForm: React.FC<{
     },
   })
 
-  const { data, error, isLoading, postRequest } = usePost<OurWorkProps>(
+  const { data, error, postRequest } = usePost<OurWorkProps>(
     routes.ourWork.base
   )
 
@@ -58,9 +59,9 @@ const CreateOurWorkForm: React.FC<{
         <button
           type="submit"
           className="block bg-blue-500 text-white px-4 py-2 rounded mt-6 m-0 m-auto cursor-pointer"
-          disabled={isLoading}
+          disabled={isUpdating}
         >
-          {isLoading ? 'Submitting...' : 'Create'}
+          {isUpdating ? 'Submitting...' : 'Create'}
         </button>
         <div className="mt-10" onClick={() => setFunc(false)}>
           <Button text="Cancel creation" />

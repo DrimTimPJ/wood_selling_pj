@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import useAuthStore from '@/store/authStore'
+import useUpdateStore from '@/store/updateStore'
 
 interface UsePostResponse<T> {
   data: T | null
   error: boolean | null
-  isLoading: boolean
   postRequest: (body: object) => Promise<void>
 }
 
@@ -14,11 +14,12 @@ const usePost = <T,>(
 ): UsePostResponse<T> => {
   const [data, setData] = useState<T | null>(null)
   const [error, setError] = useState<boolean | null>(null)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+
+  const setIsUpdating = useUpdateStore((state) => state.setIsUpdating)
   const token = useAuthStore((state) => state.token)
 
   const postRequest = async (body: object) => {
-    setIsLoading(true)
+    setIsUpdating(true)
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -43,11 +44,11 @@ const usePost = <T,>(
     } catch (err) {
       setError(true)
     } finally {
-      setIsLoading(false)
+      setIsUpdating(false)
     }
   }
 
-  return { data, error, isLoading, postRequest }
+  return { data, error, postRequest }
 }
 
 export default usePost

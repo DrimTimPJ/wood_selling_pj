@@ -13,7 +13,7 @@ interface DeleteWoodFormProps {
 const DeleteWoodForm: React.FC<DeleteWoodFormProps> = ({ _id }) => {
   const triggerUpdateWoods = useUpdateStore((state) => state.triggerUpdateWoods)
 
-  const { success, error, isLoading, deleteRequest } = useDelete(
+  const { success, error, deleteRequest } = useDelete(
     `${routes.wood.base}/${_id}`,
     triggerUpdateWoods
   )

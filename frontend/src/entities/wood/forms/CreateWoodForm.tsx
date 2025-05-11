@@ -12,6 +12,7 @@ const CreateWoodForm: React.FC<{
   setFunc: Dispatch<SetStateAction<boolean>>
 }> = ({ setFunc }) => {
   const updateWoods = useUpdateStore((state) => state.triggerUpdateWoods)
+  const isUpdating = useUpdateStore((state) => state.isUpdating)
 
   const {
     register,
@@ -31,9 +32,7 @@ const CreateWoodForm: React.FC<{
     name: 'statistics',
   })
 
-  const { data, error, isLoading, postRequest } = usePost<WoodProps>(
-    routes.wood.base
-  )
+  const { data, error, postRequest } = usePost<WoodProps>(routes.wood.base)
 
   useEffect(() => {
     if (!error && data) {
@@ -83,7 +82,7 @@ const CreateWoodForm: React.FC<{
         <div className="m-0 m-auto pt-10 md:w-[40%]">
           <h3 className="text-white text-lg mb-2">Statistics</h3>
           {fields.map((field, index) => (
-            <div>
+            <div key={index}>
               <div key={field.id} className="flex gap-2 mb-2 items-center">
                 <input
                   {...register(`statistics.${index}.name` as const, {
@@ -129,9 +128,9 @@ const CreateWoodForm: React.FC<{
           <button
             type="submit"
             className="block bg-blue-500 text-white px-4 py-2 rounded mt-6 m-0 m-auto cursor-pointer"
-            disabled={isLoading}
+            disabled={isUpdating}
           >
-            {isLoading ? 'Submitting...' : 'Create'}
+            {isUpdating ? 'Submitting...' : 'Create'}
           </button>
           <div className="mt-10" onClick={() => setFunc(false)}>
             <Button text="Cancel creation" />

@@ -17,7 +17,7 @@ const Question: React.FC<QuestionProps> = ({
   const triggerQuestionUpdate = useUpdateStore(
     (state) => state.triggerUpdateQuestions
   )
-  const { success, error, isLoading, deleteRequest } = useDelete(
+  const { success, error, deleteRequest } = useDelete(
     `${routes.questions.base}/${_id}`,
     triggerQuestionUpdate
   )

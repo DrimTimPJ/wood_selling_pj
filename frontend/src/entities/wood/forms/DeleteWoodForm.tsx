@@ -21,7 +21,7 @@ const DeleteWoodForm: React.FC<DeleteWoodFormProps> = ({ _id }) => {
   return (
     <>
       <div className="pt-10" onClick={() => deleteRequest()}>
-        <Button text="Delete" />
+        <Button text="Видалити" />
       </div>
     </>
   )

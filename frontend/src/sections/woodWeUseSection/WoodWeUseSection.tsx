@@ -45,7 +45,7 @@ export default function WoodWeUseSection() {
             className="w-[30%] m-0 m-auto mt-10"
             onClick={() => setIsShow(!isShow)}
           >
-            <Button text="Create" />
+            <Button text="Додати" />
           </div>
         )}
       </div>

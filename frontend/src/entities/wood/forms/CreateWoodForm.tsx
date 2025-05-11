@@ -57,7 +57,7 @@ const CreateWoodForm: React.FC<{
           type="text"
           className="border border-[rgb(114,139,173)] p-3 placeholder:text-[#D9D9D9] text-white w-full mt-5 rounded-2xl md:w-[50%] md:block m-auto lg:w-[35%]"
           {...register('image')}
-          placeholder="Image link"
+          placeholder="Посилання на картинку"
           required
         />
 
@@ -65,13 +65,13 @@ const CreateWoodForm: React.FC<{
           type="text"
           className="border border-[rgb(114,139,173)] p-3 placeholder:text-[#D9D9D9] text-white w-full mt-5 rounded-2xl md:w-[50%] md:block m-auto lg:w-[35%]"
           {...register('name', {
-            required: 'Name is required',
+            required: 'Назва обов`язкова',
             pattern: {
-              value: /^[A-Za-zА-Яа-яЁё\s]+$/,
-              message: 'Only letters and spaces',
+              value: /^[A-Za-zА-Яа-яІіЇїЄєҐґ\s]+$/,
+              message: 'Дозволені тільки букви, суко',
             },
           })}
-          placeholder="Name"
+          placeholder="Назва"
         />
         {errors.name && (
           <p className="text-red-500 text-sm mt-1 text-center">
@@ -80,19 +80,19 @@ const CreateWoodForm: React.FC<{
         )}
 
         <div className="m-0 m-auto pt-10 md:w-[40%]">
-          <h3 className="text-white text-lg mb-2">Statistics</h3>
+          <h3 className="text-white text-lg mb-2">Характеристика</h3>
           {fields.map((field, index) => (
             <div key={index}>
               <div key={field.id} className="flex gap-2 mb-2 items-center">
                 <input
                   {...register(`statistics.${index}.name` as const, {
-                    required: 'Statistic name is required',
+                    required: 'Назва характеристики обов`язкова',
                     pattern: {
-                      value: /^[A-Za-zА-Яа-яЁё\s]+$/,
-                      message: 'Only letters and spaces are allowed',
+                      value: /^[A-Za-zА-Яа-яІіЇїЄєҐґ\s]+$/,
+                      message: 'Дозволені тільки букви, суко',
                     },
                   })}
-                  placeholder="Statistic name"
+                  placeholder="Назва характеристики"
                   className="input-style"
                 />
 
@@ -122,7 +122,7 @@ const CreateWoodForm: React.FC<{
             onClick={() => append({ name: '', isTrue: false })}
             className="mt-2 text-white underline cursor-pointer w-[100%]"
           >
-            + Add Statistic
+            + Додати характеристику
           </button>
 
           <button
@@ -130,10 +130,10 @@ const CreateWoodForm: React.FC<{
             className="block bg-blue-500 text-white px-4 py-2 rounded mt-6 m-0 m-auto cursor-pointer"
             disabled={isUpdating}
           >
-            {isUpdating ? 'Submitting...' : 'Create'}
+            {isUpdating ? 'Підтверджуємо...' : 'Створити'}
           </button>
           <div className="mt-10" onClick={() => setFunc(false)}>
-            <Button text="Cancel creation" />
+            <Button text="Відмінити створення" />
           </div>
         </div>
 

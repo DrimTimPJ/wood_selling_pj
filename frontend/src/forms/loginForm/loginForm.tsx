@@ -10,13 +10,14 @@ import routes from '@/constants/serverLinks'
 
 import { inputData, ResponseData } from './type'
 import Button from '@/shared/button/button'
+import useUpdateStore from '@/store/updateStore'
 
 export default function LoginForm() {
   const router = useRouter()
   const { token, setToken } = useAuthStore()
-
+  const isUpdate = useUpdateStore((state)=>state.isUpdating)
   const { register, handleSubmit } = useForm<inputData>()
-  const { data, error, isLoading, postRequest } = usePost<ResponseData>(
+  const { data, error, postRequest } = usePost<ResponseData>(
     routes.auth.login
   )
 
@@ -41,18 +42,18 @@ export default function LoginForm() {
         className="border border-[rgb(114,139,173)] p-3 placeholder:text-[#D9D9D9] text-white w-full mt-5 rounded-2xl md:w-[50%] md:block m-auto lg:w-[35%]"
         type="text"
         {...register('username')}
-        placeholder="Username"
+        placeholder="Ім'я користувача"
         required
       />
       <input
         className="border border-[#728BAD] p-3 placeholder:text-[#D9D9D9] text-white w-full mt-5 rounded-2xl md:w-[50%] md:block m-auto lg:w-[35%]"
         type="password"
         {...register('password')}
-        placeholder="Your password"
+        placeholder="Ваш Пароль"
         required
       />
       <div className="w-[40%] mt-5 m-auto lg:w-[30%]">
-        <Button text={isLoading ? 'Loading...' : 'Send'} />
+        <Button text={isUpdate ? 'Загрузка...' : 'Відправити'} />
       </div>
       {error && <p className="text-center text-red-500 mt-2">Error: {error}</p>}
     </form>

@@ -7,7 +7,7 @@ export default function AboutSection() {
         <div className="bg-[#1a181a] rounded-r-4xl pt-10 w-[90%] lg:w-[90%] shadow-[0_4px_20px_rgba(255,255,255,0.6)]">
           <div className="pl-5 md:flex md:justify-around xl:pl-20 lg:pl-10">
             <div className="w-[100%]">
-              <div className="text-[64px] lg:text-[72px]">About us</div>
+              <div className="text-[64px] lg:text-[72px]">Про нас:</div>
               <div className="w-[80%] mt-5 text-[14px] md:text-[24px] lg:text-[30px] xl:text-[42px]">
                 <strong>BIO CWT</strong> - Ми виготовляємо вироби з масиву дерева 
                 за індивідуальними кресленнями. Ми виготовляємо стільці, крісла, шафи, ліжка та багато іншого у власній майстерні, 

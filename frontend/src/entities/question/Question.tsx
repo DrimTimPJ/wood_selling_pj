@@ -29,12 +29,12 @@ const Question: React.FC<QuestionProps> = ({
   return (
     <div className=" border border-white rounded-3xl text-center p-10 md:text-[24px]">
       <div>
-        Sender: <strong>{name}</strong>
+        Відправник: <strong>{name}</strong>
       </div>
       <div className="mt-5">
-        Phonenumber: <strong>{telephoneNumber}</strong>
+        Номер телефону: <strong>{telephoneNumber}</strong>
       </div>
-      <div className="mt-5">Question:</div>
+      <div className="mt-5">Питання:</div>
       <div className="w-[80%] m-0 m-auto">
         <strong>{question}</strong>
       </div>
@@ -42,7 +42,7 @@ const Question: React.FC<QuestionProps> = ({
         className="mt-10 text-[16px] w-[30%] m-0 m-auto"
         onClick={() => deleteRequest()}
       >
-        <Button text="Delete" />
+        <Button text="Видалити" />
       </div>
     </div>
   )

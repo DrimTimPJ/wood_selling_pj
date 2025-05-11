@@ -10,9 +10,9 @@ export default function NotFoundPage() {
         <div className="flex justify-center items-center text-[150px] md:text-[200px]">
           404
         </div>
-        <div className="text-[36px] md:text-[48px] lg:text-[56px]">Woops</div>
+        <div className="text-[36px] md:text-[48px] lg:text-[56px]">Упс..</div>
         <div className="mt-5 text-[#FFDBBB] text-[24px] md:text-[32px] lg:text-[42px]">
-          Oh, you must be lost, there is no such page.
+          О, ви, мабуть, заблукали, такої сторінки немає.
         </div>
         <div className="mt-5 w-[100%] md:w-[70%] lg:w-[60%] m-0 m-auto">
           <Link href={NAV_BAR_LINKS.home.link}>

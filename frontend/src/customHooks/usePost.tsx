@@ -3,7 +3,7 @@ import useAuthStore from '@/store/authStore'
 
 interface UsePostResponse<T> {
   data: T | null
-  error: string | null
+  error: boolean | null
   isLoading: boolean
   postRequest: (body: object) => Promise<void>
 }
@@ -13,7 +13,7 @@ const usePost = <T,>(
   updateTrigger?: Function
 ): UsePostResponse<T> => {
   const [data, setData] = useState<T | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<boolean | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const token = useAuthStore((state) => state.token)
 
@@ -38,9 +38,10 @@ const usePost = <T,>(
         throw new Error(result.message || 'Something went wrong')
       }
 
+      setError(false)
       setData(result)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unknown error')
+      setError(true)
     } finally {
       setIsLoading(false)
     }

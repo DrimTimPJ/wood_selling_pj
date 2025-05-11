@@ -48,7 +48,7 @@ const CreateOurWorkForm: React.FC<{
         />
 
         <input
-          type="text"
+          type="number"
           className="border border-[rgb(114,139,173)] p-3 placeholder:text-[#D9D9D9] text-white w-full mt-5 rounded-2xl md:w-[50%] md:block m-auto lg:w-[35%]"
           {...register('price')}
           placeholder="price"

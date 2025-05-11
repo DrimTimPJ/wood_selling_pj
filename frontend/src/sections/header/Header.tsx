@@ -1,19 +1,40 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { jwtDecode } from 'jwt-decode'
 
 import UseGetScreenSize from '@/customHooks/getScreenSize'
 
 import NavBar from './components/NavBar'
 import MobileNavBar from './components/MobileNavBar'
+import { TokenPayload } from '@/types/tokenPayload'
 
 import { NAV_BAR_LINKS } from '@/contants/clientLinks'
+import useAuthStore from '@/store/authStore'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const windowSize = UseGetScreenSize()
+  const token = useAuthStore((state) => state.token)
+  const clearToken = useAuthStore((state) => state.clearToken)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (token) {
+        const decodedData = jwtDecode<TokenPayload>(token)
+        const isExpired = decodedData.exp < Math.floor(Date.now() / 1000)
+        if (isExpired) {
+          localStorage.removeItem('token')
+          clearToken()
+        }
+      }
+    }, 10 * 1000)
+
+    return () => clearInterval(interval)
+  }, [token])
 
   return (
     <div className="bg-[#222021] pb-10">

@@ -25,8 +25,8 @@ export default function Footer() {
               />
             </div>
             <div>
-              Na Plzeňce 1166/1 <br />
-              Прага 5 - Смихов, 150 00
+              вулиця Шолом-Алейхема, 4/26 <br />
+              Дніпро, Дніпропетровська область, Україна, 49044
             </div>
           </div>
           <div className="flex mt-5 lg:pl-10">
@@ -39,7 +39,7 @@ export default function Footer() {
                 alt=""
               />
             </div>
-            <div>+420 000 000 000</div>
+            <div>+380962459010</div>
           </div>
         </div>
       </div>
